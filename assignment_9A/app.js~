@@ -1,0 +1,35 @@
+
+function Addmessage(text) {
+    this.text = text;
+}
+
+function CreateViewModel() {
+    var self = this;
+    self.messages = ko.observableArray([
+        new Addmessage("This is the first comment!"),
+        new Addmessage("Here's the second one!")
+    ]);
+    self.newMessage = ko.observable();
+
+    self.addCommentFromInputBox = function () {
+        if (self.newMessage()!=="" && self.newMessage()!==undefined){
+            self.messages.push(new AddMessage(self.newMessage()));
+            self.newMessage("");
+        }
+
+    };
+
+    ko.bindingHandlers.enterKey = {
+        init: function (element, valueAccessor, allBindings, data, context) {
+            var wrapper = function (data, event) {
+                if (event.keyCode === 13) {
+                    valueAccessor().call(this, data, event);
+                }
+            };
+            ko.applyBindingsToNode(element, { event: { keyup: wrapper } }, context);
+        }
+    };
+    
+}
+
+ko.applyBindings(new AppViewModel());
