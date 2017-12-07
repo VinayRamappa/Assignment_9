@@ -1,1 +1,1 @@
-# Assignment_9
+It is a responsive web application where users can login and listen to their favorite songs. Here a user can create his own room and include the list of his favorite songs. Inside every room, there will be chat box where the group of users within that particular room can have social discussion. The user who creates the room will have option of pausing the song at any time. Since there can be large number of rooms on the homepage we have included the option of search button to make it easy for the user to select a particular room.  
